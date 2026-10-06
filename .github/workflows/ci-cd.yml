@@ -74,6 +74,6 @@ jobs:
             export DOCKER_IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/todo-app:${{ github.ref_name }}
             export APP_VERSION=${{ github.ref_name }}
             echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-            docker-compose -f docker/docker-compose.yml pull
-            docker-compose -f docker/docker-compose.yml up -d
+            docker compose -f docker/docker-compose.yml pull
+            docker compose -f docker/docker-compose.yml up -d
             docker image prune -f
